@@ -1,0 +1,36 @@
+.cardDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  gap: 1rem;
+}
+.cardDeletBtn {
+  color: black;
+  background-color: rgba(255, 255, 255, 0.451);
+  border-radius: 50%;
+  border: none;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.2rem;
+}
+.cardImg {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.cardLikeBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cardLikeBtn,
+.cardDisLieeBtn {
+  padding: 0.4rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+}
