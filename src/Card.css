@@ -1,10 +1,9 @@
 .cardDiv {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
   align-items: center;
   position: relative;
-  gap: 1rem;
 }
 .cardDeletBtn {
   color: black;
@@ -17,7 +16,7 @@
   font-size: 1.2rem;
 }
 .cardImg {
-  max-width: 100%;
+  width: 100%;
   border-radius: 5px;
 }
 
@@ -28,9 +27,16 @@
   gap: 1rem;
 }
 
-.cardLikeBtn,
-.cardDisLieeBtn {
+.likeBtn,
+.disLieeBtn {
   padding: 0.4rem 1rem;
-  border-radius: 0.5rem;
   border: none;
+  background-color: white;
+  font-size: 1rem;
+}
+.loveBtn {
+  color: rgba(255, 0, 0, 0.644);
+  background-color: white;
+  border: none;
+  font-size: 2rem;
 }
