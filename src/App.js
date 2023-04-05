@@ -1,10 +1,16 @@
-import "./App.css";
 import React from "react";
 import Animal from "./Animal";
 import { animals } from "./animalsList";
+import "./App.css";
+import Header from "./Header";
 
 class App extends React.Component {
-  state = { animalList: animals };
+  state = {
+    animalList: animals,
+    searchInput: "",
+  };
+  backUpState = [...this.state.animalList];
+
   // handler for removing card
   cardDeleteHandler = (name) => {
     const filterList = this.state.animalList.filter(
@@ -12,59 +18,44 @@ class App extends React.Component {
     );
     this.setState({ animalList: filterList });
   };
-  //increase like
-  cardLikeHandler = (name) => {
-    const newList = this.state.animalList.map((item) => {
-      if (item.name === name) {
-        item.name = name;
-        item.likes++;
-        return item;
-      } else return item;
+  // handle like and dislike btn click
+  cardLikeHandler = (name, action) => {
+    this.setState({
+      animalList: this.state.animalList.map((item) => {
+        if (item.name === name) {
+          if (action === "add") {
+            item.likes++;
+            return item;
+          } else {
+            item.likes--;
+            return item;
+          }
+        } else return item;
+      }),
     });
-    this.setState({ animalList: newList });
   };
-  // decrease like
-  cardDisLikeHandler = (name) => {
-    const newList = this.state.animalList.map((item) => {
-      if (item.name === name) {
-        item.name = name;
-        item.likes--;
-        return item;
-      } else return item;
-    });
-    this.setState({ animalList: newList });
-  };
-  getByNameHandler(name) {
-    console.log(name);
-    // this.setState({ animalList: animals });
-    // this.setState({
-    //   animalList: this.state.animalList.filter((item) =>
-    //     item.name.includes(name)
-    //   ),
+  // filter by kewod in the search input
+  searchHandler(e) {
+    console.log(e.target.value);
+    this.setState({ searchInput: e.target.value });
+
+    // console.log(name);
+    // this.setState((prevStat) => {
+    //   const updatedArray = prevStat.filter((item) => item.name.includes(name));
+    //   return { animalList: updatedArray };
     // });
   }
   render() {
     return (
       <div className="App">
-        <div className="searchDiv">
-          <label htmlFor="searchInput">Search</label>
-          <input
-            onInput={(e) => this.getByNameHandler(e.target.value)}
-            type="text"
-            id="searchInput"
-          />
-        </div>
+        <Header />
         <Animal
+          searchHandler={(e) => this.searchHandler(e)}
+          searchInput={this.state.searchInput}
           animalList={this.state.animalList}
-          carDelete={(e) =>
-            this.cardDeleteHandler(e.target.closest(".cardDiv").id)
-          }
-          cardLike={(e) =>
-            this.cardLikeHandler(e.target.closest(".cardDiv").id)
-          }
-          cardDisLike={(e) =>
-            this.cardDisLikeHandler(e.target.closest(".cardDiv").id)
-          }
+          carDelete={this.cardDeleteHandler}
+          cardLike={this.cardLikeHandler}
+          cardDisLike={this.cardLikeHandler}
         />
       </div>
     );

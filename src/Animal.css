@@ -1,6 +1,6 @@
 .cardBody {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   align-items: center;
   justify-content: center;
   gap: 1rem;

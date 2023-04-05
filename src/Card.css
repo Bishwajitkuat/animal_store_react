@@ -28,15 +28,18 @@
 }
 
 .likeBtn,
-.disLieeBtn {
+.disLikeBtn {
   padding: 0.4rem 1rem;
   border: none;
-  background-color: white;
+  background-color: rgba(128, 128, 128, 0.43);
   font-size: 1rem;
+  border-radius: 0.5rem;
 }
-.loveBtn {
-  color: rgba(255, 0, 0, 0.644);
-  background-color: white;
-  border: none;
-  font-size: 2rem;
+
+.likeBtn:hover {
+  background-color: rgba(153, 205, 50, 0.355);
+}
+
+.disLikeBtn:hover {
+  background-color: rgba(255, 0, 0, 0.424);
 }

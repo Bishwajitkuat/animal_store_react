@@ -1,0 +1,8 @@
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: black;
+  color: white;
+  border-radius: 0px 0px 10px 10px;
+}
