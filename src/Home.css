@@ -1,0 +1,22 @@
+.homeLinkParent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.animalLinkDiv,
+.birdLinkDiv {
+  min-height: 80vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+.birdLinkDiv {
+  background-image: url("./sparrow.jpeg");
+}
+.animalLinkDiv {
+  background: url("./panda.jpeg");
+}

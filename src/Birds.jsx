@@ -1,17 +1,16 @@
-import "./Animal.css";
 import React from "react";
 import Card from "./Card";
 import Search from "./Search";
 
-const Animal = (props) => {
-  const searchFilter = props.animalList.filter((item) => {
+const Birds = (props) => {
+  const searchFilter = props.birdList.filter((item) => {
     return item.name.includes(props.searchInput);
   });
   const renderList = searchFilter.map((item) => (
     <Card
-      cardDelete={() => props.carDelete(item.name, "animal")}
-      cardLike={() => props.cardLike(item.name, "add", "animal")}
-      cardDisLike={() => props.cardDisLike(item.name, "remove", "animal")}
+      cardDelete={() => props.carDelete(item.name, "bird")}
+      cardLike={() => props.cardLike(item.name, "add", "bird")}
+      cardDisLike={() => props.cardDisLike(item.name, "remove", "bird")}
       key={item.name}
       name={item.name}
       url={`https://source.unsplash.com/500x400/?${item.name}`}
@@ -26,4 +25,4 @@ const Animal = (props) => {
   );
 };
 
-export default Animal;
+export default Birds;
