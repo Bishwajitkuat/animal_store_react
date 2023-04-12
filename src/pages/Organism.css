@@ -5,3 +5,8 @@
   justify-content: center;
   gap: 1rem;
 }
+.organismDiv h2 {
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 2rem;
+}

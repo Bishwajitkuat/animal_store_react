@@ -1,12 +1,11 @@
 import React from "react";
 import { BrowserRouter, Route, Routes, NavLink } from "react-router-dom";
-import Animal from "./pages/Animal";
 import { animals, birds } from "./animalsList";
 import "./App.css";
 import Header from "./components/Header/Header";
 import Home from "./pages/Home/Home";
-import Birds from "./pages/Birds";
 import About from "./pages/About";
+import Organism from "./pages/Organism";
 
 // if local storage does not have any data, data sent to local storage for using it as state
 if (
@@ -28,27 +27,17 @@ class App extends React.Component {
 
   // handler for removing card
   cardDeleteHandler = (name, type) => {
-    if (type === "animal") {
-      const filterList = this.state.animalList.filter(
-        (item) => item.name !== name
-      );
-
-      this.setState({ animalList: filterList });
-      // after updating the state new value is overwrite into local host
-      localStorage.setItem("animal_local", JSON.stringify(filterList));
-    } else {
-      const filterList = this.state.birdList.filter(
-        (item) => item.name !== name
-      );
-      this.setState({ birdList: filterList });
-      localStorage.setItem("bird_local", JSON.stringify(filterList));
-    }
+    const filterList = this.state[type + "List"].filter(
+      (item) => item.name !== name
+    );
+    this.setState({ [type + "List"]: filterList });
+    // after updating the state new value is overwrite into local host
+    localStorage.setItem([type + "_local"], JSON.stringify(filterList));
   };
+
   // handle like and dislike btn click
   cardLikeHandler = (name, action, type) => {
-    const filterList = this.state[
-      type === "animal" ? "animalList" : "birdList"
-    ].map((item) => {
+    const filterList = this.state[type + "List"].map((item) => {
       if (item.name === name) {
         if (action === "add") {
           item.likes++;
@@ -60,13 +49,8 @@ class App extends React.Component {
       } else return item;
     });
 
-    if (type === "animal") {
-      this.setState({ animalList: filterList });
-      localStorage.setItem("animal_local", JSON.stringify(filterList));
-    } else {
-      this.setState({ birdList: filterList });
-      localStorage.setItem("bird_local", JSON.stringify(filterList));
-    }
+    this.setState({ [type + "List"]: filterList });
+    localStorage.setItem([type + "_local"], JSON.stringify(filterList));
   };
   // filter by kewod in the search input
   searchHandler(e) {
@@ -84,10 +68,11 @@ class App extends React.Component {
               <Route
                 path="/animals"
                 element={
-                  <Animal
+                  <Organism
+                    type="animal"
                     searchHandler={(e) => this.searchHandler(e)}
                     searchInput={this.state.searchInput}
-                    animalList={this.state.animalList}
+                    list={this.state.animalList}
                     carDelete={this.cardDeleteHandler}
                     cardLike={this.cardLikeHandler}
                     cardDisLike={this.cardLikeHandler}
@@ -97,10 +82,11 @@ class App extends React.Component {
               <Route
                 path="/birds"
                 element={
-                  <Birds
+                  <Organism
+                    type="bird"
                     searchHandler={(e) => this.searchHandler(e)}
                     searchInput={this.state.searchInput}
-                    birdList={this.state.birdList}
+                    list={this.state.birdList}
                     carDelete={this.cardDeleteHandler}
                     cardLike={this.cardLikeHandler}
                     cardDisLike={this.cardLikeHandler}
