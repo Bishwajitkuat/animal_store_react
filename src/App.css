@@ -7,12 +7,3 @@
 .App {
   padding: 0 1rem;
 }
-
-.searchDiv {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  align-items: center;
-  height: 4rem;
-  margin-bottom: 2rem;
-}

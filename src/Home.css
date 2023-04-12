@@ -18,5 +18,9 @@
   background-image: url("./sparrow.jpeg");
 }
 .animalLinkDiv {
-  background: url("./panda.jpeg");
+  background-image: url("./panda.jpeg");
+}
+.homeLinkParent a {
+  text-decoration: none;
+  font-size: 2rem;
 }

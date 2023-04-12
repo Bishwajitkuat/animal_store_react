@@ -20,7 +20,10 @@ const Animal = (props) => {
   ));
   return (
     <div>
-      <Search inputHandler={props.searchHandler} />
+      <Search
+        inputHandler={props.searchHandler}
+        searchInput={props.searchInput}
+      />
       <div className="cardBody">{renderList}</div>
     </div>
   );

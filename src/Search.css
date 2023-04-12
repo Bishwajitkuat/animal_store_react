@@ -1,0 +1,19 @@
+.searchDiv {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  height: 4rem;
+  margin-bottom: 2rem;
+}
+
+.searchDiv label {
+  font-size: 1.5rem;
+}
+.searchDiv input {
+  width: 250px;
+  height: 30px;
+  box-shadow: none;
+  border: 1px solid gray;
+  border-radius: 0.5rem;
+}
