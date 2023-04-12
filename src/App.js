@@ -3,8 +3,8 @@ import { BrowserRouter, Route, Routes, NavLink } from "react-router-dom";
 import Animal from "./pages/Animal";
 import { animals, birds } from "./animalsList";
 import "./App.css";
-import Header from "./components/Header";
-import Home from "./components/Home";
+import Header from "./components/Header/Header";
+import Home from "./pages/Home/Home";
 import Birds from "./pages/Birds";
 import About from "./pages/About";
 
@@ -77,7 +77,7 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <div className="totalApp">
-          <Header />
+          <Header data={this.state} />
           <div className="App">
             <Routes>
               <Route path="/" element={<Home />} />

@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "../UI/Card";
-import Search from "../components/Search";
+import Search from "../components/Search/Search";
 
 const Birds = (props) => {
   const searchFilter = props.birdList.filter((item) => {

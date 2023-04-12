@@ -12,10 +12,12 @@ const Header = (props) => {
             <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <NavLink to="/animals">Animals</NavLink>
+            <NavLink to="/animals">
+              Animals ({props.data.animalList.length})
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/birds">Birds</NavLink>
+            <NavLink to="/birds">Birds ({props.data.birdList.length})</NavLink>
           </li>
           <li>
             <NavLink to="/about">About</NavLink>

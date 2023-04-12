@@ -15,10 +15,10 @@
   color: white;
 }
 .birdLinkDiv {
-  background-image: url("../assets/sparrow.jpeg");
+  background-image: url("../../assets/sparrow.jpeg");
 }
 .animalLinkDiv {
-  background-image: url("../assets/panda.jpeg");
+  background-image: url("../../assets/panda.jpeg");
 }
 .homeLinkParent a {
   text-decoration: none;
