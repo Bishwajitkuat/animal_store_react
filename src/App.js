@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter, Route, Routes, NavLink } from "react-router-dom";
-import Animal from "./Animal";
+import Animal from "./pages/Animal";
 import { animals, birds } from "./animalsList";
 import "./App.css";
-import Header from "./Header";
-import Home from "./Home";
-import Birds from "./Birds";
-import About from "./About";
+import Header from "./components/Header";
+import Home from "./components/Home";
+import Birds from "./pages/Birds";
+import About from "./pages/About";
 
 // if local storage does not have any data, data sent to local storage for using it as state
 if (
